@@ -42,6 +42,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "33954243bd79057c2de7338850b85983a44588021f8a5fee574a8888c6de4344"
 
 [[package]]
+name = "anymap2"
+version = "0.13.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d301b3b94cb4b2f23d7917810addbbaff90738e0ca2be692bd027e70d7e0330c"
+
+[[package]]
 name = "arrayvec"
 version = "0.5.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -251,7 +257,7 @@ dependencies = [
  "num-integer",
  "num-traits",
  "serde",
- "time",
+ "time 0.1.43",
  "winapi 0.3.9",
 ]
 
@@ -306,8 +312,8 @@ dependencies = [
  "kstring",
  "lazy_static",
  "liquid",
- "liquid-core",
- "liquid-lib",
+ "liquid-core 0.22.0",
+ "liquid-lib 0.22.0",
  "log",
  "mime_guess",
  "normalize-line-endings",
@@ -950,6 +956,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "dd25036021b0de88a0aff6b850051563c6516d0bf53f8638938edbb9de732736"
 
 [[package]]
+name = "itoa"
+version = "1.0.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1aab8fc367588b89dcee83ab0fd66b72b50b72fa1904d7095045ace2b0c81c35"
+
+[[package]]
 name = "jsonfeed"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1007,9 +1019,9 @@ dependencies = [
 
 [[package]]
 name = "libc"
-version = "0.2.97"
+version = "0.2.121"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "12b8adadd720df158f4d70dfe7ccc6adb0472d7c55ca83445f6a5ab3e36f8fb6"
+checksum = "efaa7b300f3b5fe8eb6bf21ce3895e1751d9665086af2d64b42f19701015ff4f"
 
 [[package]]
 name = "line-wrap"
@@ -1028,15 +1040,14 @@ checksum = "7fb9b38af92608140b86b693604b9ffcc5824240a484d1ecd4795bacb2fe88f3"
 
 [[package]]
 name = "liquid"
-version = "0.22.0"
+version = "0.25.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c09860255f7e7ab76fe682f8d46c1b8b0b4c4330d64136056f650d0e2d49c144"
+checksum = "faa97b97be27ee28a1f17d2abc00aa6b3be8cb44ae742aa4736a00a019d6a047"
 dependencies = [
  "doc-comment",
- "kstring",
- "liquid-core",
- "liquid-derive",
- "liquid-lib",
+ "liquid-core 0.25.0",
+ "liquid-derive 0.25.0",
+ "liquid-lib 0.25.0",
  "serde",
 ]
 
@@ -1050,11 +1061,28 @@ dependencies = [
  "chrono",
  "itertools",
  "kstring",
- "liquid-derive",
+ "liquid-derive 0.22.0",
  "num-traits",
  "pest",
  "pest_derive",
  "serde",
+]
+
+[[package]]
+name = "liquid-core"
+version = "0.25.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3150f232979751de2125f3ad6efc016bb9baec0ea14cc2188f45edf54dffd32d"
+dependencies = [
+ "anymap2",
+ "itertools",
+ "kstring",
+ "liquid-derive 0.25.0",
+ "num-traits",
+ "pest",
+ "pest_derive",
+ "serde",
+ "time 0.3.9",
 ]
 
 [[package]]
@@ -1064,7 +1092,18 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "88408698b7c2a426811369778ed472e219888aa4934f4de69568cc5bf05c8bc9"
 dependencies = [
  "proc-macro2",
- "proc-quote",
+ "proc-quote 0.3.2",
+ "syn",
+]
+
+[[package]]
+name = "liquid-derive"
+version = "0.25.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8bef177bd1a3446c9a9f5a9ede5e60b5501fc2f3471f2d38586b42db8cf32810"
+dependencies = [
+ "proc-macro2",
+ "proc-quote 0.4.0",
  "syn",
 ]
 
@@ -1078,10 +1117,25 @@ dependencies = [
  "deunicode",
  "itertools",
  "kstring",
- "liquid-core",
+ "liquid-core 0.22.0",
  "once_cell",
  "percent-encoding",
  "regex",
+ "unicode-segmentation",
+]
+
+[[package]]
+name = "liquid-lib"
+version = "0.25.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7789136ce73efcc271c761dd87120b295b83bb83de325dd225bd9ebf459d8e49"
+dependencies = [
+ "itertools",
+ "liquid-core 0.25.0",
+ "once_cell",
+ "percent-encoding",
+ "regex",
+ "time 0.3.9",
  "unicode-segmentation",
 ]
 
@@ -1285,6 +1339,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "num_threads"
+version = "0.1.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "aba1801fb138d8e85e11d0fc70baf4fe1cdfffda7c6cd34a854905df588e5ed0"
+dependencies = [
+ "libc",
+]
+
+[[package]]
 name = "numerals"
 version = "0.1.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1445,6 +1508,19 @@ name = "proc-quote"
 version = "0.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "06ea4226882439d07839be9c7f683e13d6d69d9c2fe960d61f637d1e2fa4c081"
+dependencies = [
+ "proc-macro-hack",
+ "proc-macro2",
+ "proc-quote-impl",
+ "quote",
+ "syn",
+]
+
+[[package]]
+name = "proc-quote"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5e84ab161de78c915302ca325a19bee6df272800e2ae1a43fe3ef430bab2a100"
 dependencies = [
  "proc-macro-hack",
  "proc-macro2",
@@ -1689,7 +1765,7 @@ version = "1.0.64"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "799e97dc9fdae36a5c8b8f2cae9ce2ee9fdce2058c57a93e6099d919fd982f79"
 dependencies = [
- "itoa",
+ "itoa 0.4.7",
  "ryu",
  "serde",
 ]
@@ -1903,6 +1979,24 @@ dependencies = [
  "libc",
  "winapi 0.3.9",
 ]
+
+[[package]]
+name = "time"
+version = "0.3.9"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c2702e08a7a860f005826c6815dcac101b19b5eb330c27fe4a5928fec1d20ddd"
+dependencies = [
+ "itoa 1.0.1",
+ "libc",
+ "num_threads",
+ "time-macros",
+]
+
+[[package]]
+name = "time-macros"
+version = "0.2.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "42657b1a6f4d817cda8e7a0ace261fe0cc946cf3a80314390b22cc61ae080792"
 
 [[package]]
 name = "tiny_http"
